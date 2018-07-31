@@ -1,0 +1,155 @@
+LARAVEL 5 AND ANGULAR 5 PROJECT
+
+download php 7.1.3
+
+
+install 'php' command globally:
+Add php installation to your env path:
+F:\wamp64\bin\php\php7.1.3
+
+
+create "AngularLaravel" folder in your WAMP 'www' folder
+
+
+Open cmd or gitbash on the "AngularLaravel" folder
+
+
+create angular project:
+ng new angular-module
+
+
+CHECK the installed Angular version:
+ng --version
+
+Angular CLI: 1.7.4
+Node: 9.8.0
+OS: win32 x64
+Angular: 5.2.11
+... animations, common, compiler, compiler-cli, core, forms
+... http, language-service, platform-browser
+... platform-browser-dynamic, router
+
+@angular/cli: 1.7.4
+@angular-devkit/build-optimizer: 0.3.2
+@angular-devkit/core: 0.3.2
+@angular-devkit/schematics: 0.3.2
+@ngtools/json-schema: 1.2.0
+@ngtools/webpack: 1.10.2
+@schematics/angular: 0.3.2
+@schematics/package-update: 0.3.2
+typescript: 2.5.3
+webpack: 3.11.0
+
+
+
+INSTALL LARAVEL:
+composer global require "laravel/installer"
+
+
+create a laravel project in the same "AngularLaravel" folder (via separate cmd or gitbash):
+composer create-project --prefer-dist laravel/laravel blog "5.5.*"
+
+
+Rename the "laravel" folder to "laravel-module"
+
+
+Navigate to the "laravel-module" folder. Create an .env file
+php -r "copy('.env.example', '.env');"
+
+
+Generate a key (via CMD on the "laravel-module" folder):
+php artisan key:generate
+
+
+CHECK the installed Laravel version:
+php artisan --version
+
+	=> Laravel Framework 5.5.40
+
+
+Start the Laravel server:
+php artisan serve
+
+
+Add authentication:
+php artisan make:auth
+
+
+To run laravel migration files:
+php artisan migrate
+
+Note:
+user table will be created when running migrate (after adding authentication)
+
+
+Add CORS in laravel
+php artisan make:middleware Cors
+
+Add the following in app/Http/Kernel.php (in "$middleware" array):
+\App\Http\Middleware\Cors::class
+
+Add the following in app/Http/Middelware/Cors.php (in public function handle"):
+return $next($request)
+    ->header('Access-Control-Allow-Origin', '*')
+    ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+    ->header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization, X-Requested-With');
+
+
+Change Timezone in Laravel:
+Open app/config/app/php =>
+Change default 'UTC' timezone here:
+'timezone' => 'America/Paramaribo',
+	
+	
+Install bootstrap 4 in angular 5
+
+1. Install the angular cli
+npm install -g @angular/cli
+2. Create na Angular project using angular cli
+ng new my-awesome-project
+3. Install dependencies
+Next, cd in your new project and install requiered dependencies:
+
+npm install bootstrap --save
+npm install jquery --save
+npm install popper.js --save
+Whatch out about popper.js. This lib is used by Bootstrap. 
+However, you have to precisely run npm install popper.js --save because popper is another js lib distributed by npm.
+
+Minimal needed Angular configuration:
+
+angular cli: 1.6.8
+angular: ^5.2.0
+bootstrap: ^4.0.0
+jquery: ^3.3.1
+popper.js: ^1.12.9
+4. Integrate the dependencies to your project
+Now that you have all your dependencies, you'll have to "plug" bootstrap into your project.
+
+Open .angular-cli.json file and update the script section as follows:
+
+"scripts": [
+    "../node_modules/jquery/dist/jquery.min.js",
+    "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+  ],
+Finally, open src\styles.css and add:
+
+@import "~bootstrap/dist/css/bootstrap.css";
+The last operation is necessary when running angular project in production mode.
+
+
+Open angular folder in vsCode
+
+Open laravel folder in vsCode
+
+Indentation in vsCode:
+Shift + Alt + F
+
+Comment and Uncomment code in vsCode:
+Keyboard:  CTRL + K, CTRL + C (comment); CTRL + K, CTRL + U (uncomment)
+
+
+
+
+
+
